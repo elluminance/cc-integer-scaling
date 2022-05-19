@@ -1,0 +1,7 @@
+{
+    "id": "integer-scaling",
+    "version": "0.0.1",
+
+    "description": "Adds integer scaling options - original code by Idearum",
+    "prestart": "prestart.js"
+}

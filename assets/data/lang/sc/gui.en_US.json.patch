@@ -1,0 +1,22 @@
+[{
+    "type": "ENTER",
+    "index": ["labels", "options", "display-type", "group"]
+},{
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": "Integer"
+},{
+    "type": "EXIT",
+    "count": 2
+},{
+    "type": "ENTER",
+    "index": ["pixel-size", "group"]
+},{
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": "5"
+},{
+    "type": "ADD_ARRAY_ELEMENT",
+    "content": "6"
+},{
+    "type": "EXIT",
+    "count": 4
+}]

@@ -1,0 +1,5 @@
+{
+	"name": "integer-scaling",
+	"version": "0.0.1",
+	"prestart": "prestart.js"
+}
