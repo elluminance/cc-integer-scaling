@@ -12,34 +12,30 @@ sc.OptionModel.inject({
     },
 
     _setDisplaySize() {
-        let a = 0,
-            c = window.IG_WIDTH,
-            d = window.IG_HEIGHT,
-            b = $(window).width(),
-            i = $(window).height(),
-            j = false,
-            k = false;
+        let width = 0, height = 0,
+            originalWidth = window.IG_WIDTH, originalHeight = window.IG_HEIGHT,
+            windowWidth = $(window).width(), windowHeight = $(window).height();
         if(this.values["display-type"] == sc.DISPLAY_TYPE.INTEGER) {
-            if (b > c * window.IG_GAME_SCALE && e > d * window.IG_GAME_SCALE) {
-                a = c * window.IG_GAME_SCALE;
-                b = d * window.IG_GAME_SCALE;
-            } else if (Math.floor(b / c) == 0 || Math.floor(e / d) == 0) {
-                a = c;
-                b = d;
+            if (windowWidth > originalWidth * window.IG_GAME_SCALE && windowHeight > originalHeight * window.IG_GAME_SCALE) {
+                width = originalWidth * window.IG_GAME_SCALE;
+                height = originalHeight * window.IG_GAME_SCALE;
+            } else if (Math.floor(windowWidth / originalWidth) == 0 || Math.floor(windowHeight / originalHeight) == 0) {
+                width = originalWidth;
+                height = originalHeight;
             } else {
-                if (b / c < e / d) {
-                    a = c * Math.floor(b / c);
-                    b = d * Math.floor(b / c);
+                if (windowWidth / originalWidth < windowHeight / originalHeight) {
+                    width = originalWidth * Math.floor(windowWidth / originalWidth);
+                    height = originalHeight * Math.floor(windowWidth / originalWidth);
                 } else {
-                    a = c * Math.floor(e / d);
-                    b = d * Math.floor(e / d);
+                    width = originalWidth * Math.floor(windowHeight / originalHeight);
+                    height = originalHeight * Math.floor(windowHeight / originalHeight);
                 }
             }
 
-            if (window.ig && window.ig.system) ig.system.setCanvasSize(a, b, false);
+            if (window.ig && window.ig.system) ig.system.setCanvasSize(width, height, false);
             else {
-                $("#canvas").width(a);
-                $("#canvas").height(b);
+                $("#canvas").width(width);
+                $("#canvas").height(height);
                 $("#canvas")[0].className = ""
             }
         } else this.parent();
